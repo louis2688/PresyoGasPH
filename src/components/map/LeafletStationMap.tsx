@@ -204,7 +204,7 @@ function MapFloatingChrome({
   return createPortal(
     <div className="pointer-events-none absolute right-3 top-3 z-[600]">
       <div className="pointer-events-auto inline-flex max-w-[calc(100vw-1.5rem)] flex-row flex-wrap items-center gap-1 rounded-xl bg-transparent p-0 shadow-none ring-0">
-        <label className="flex cursor-pointer items-center gap-1.5 rounded-lg border border-slate-300 bg-transparent px-2 py-1 text-[11px] font-semibold leading-none text-slate-900 hover:border-slate-400 md:text-xs">
+        <label className="flex cursor-pointer items-center gap-1.5 rounded-lg border border-slate-300 bg-transparent px-2 py-1 text-[11px] font-semibold leading-none text-slate-900 hover:border-slate-400 dark:border-slate-600 dark:text-slate-100 dark:hover:border-slate-500 dark:hover:bg-white/10 md:text-xs">
           <MapPinned className="size-3.5 shrink-0 text-sky-700 md:size-4" aria-hidden />
           <select
             value={jumpValue}
@@ -213,7 +213,7 @@ function MapFloatingChrome({
               setJumpValue(v);
               if (v) onJump(v);
             }}
-            className="max-w-[118px] cursor-pointer bg-transparent py-0 text-[11px] text-slate-900 outline-none md:max-w-[168px] md:text-xs"
+            className="max-w-[118px] cursor-pointer bg-transparent py-0 text-[11px] text-slate-900 outline-none dark:text-slate-100 md:max-w-[168px] md:text-xs"
           >
             <option value="">Jump to area</option>
             {jumpTargets.map((t) => (
@@ -226,7 +226,7 @@ function MapFloatingChrome({
         <button
           type="button"
           onClick={toggleFullscreen}
-          className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-slate-300 bg-transparent px-2 py-1 text-[11px] font-semibold leading-none text-slate-900 hover:border-slate-400 hover:bg-black/[0.06] md:text-xs"
+          className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-slate-300 bg-transparent px-2 py-1 text-[11px] font-semibold leading-none text-slate-900 hover:border-slate-400 hover:bg-black/[0.06] dark:border-slate-600 dark:text-slate-100 dark:hover:border-slate-500 dark:hover:bg-white/10 md:text-xs"
           title={fullscreen ? "Exit fullscreen" : "Fullscreen"}
         >
           {fullscreen ? (
@@ -241,7 +241,7 @@ function MapFloatingChrome({
         <button
           type="button"
           onClick={locateUser}
-          className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-slate-300 bg-transparent px-2 py-1 text-[11px] font-semibold leading-none text-slate-900 hover:border-slate-400 hover:bg-black/[0.06] md:text-xs"
+          className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-slate-300 bg-transparent px-2 py-1 text-[11px] font-semibold leading-none text-slate-900 hover:border-slate-400 hover:bg-black/[0.06] dark:border-slate-600 dark:text-slate-100 dark:hover:border-slate-500 dark:hover:bg-white/10 md:text-xs"
           title="Find my location"
         >
           <LocateFixed className="size-3.5 text-emerald-700 md:size-4" aria-hidden />

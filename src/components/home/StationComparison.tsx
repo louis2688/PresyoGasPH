@@ -46,26 +46,26 @@ export function StationComparison({ stations }: Props) {
   }
 
   return (
-    <section id="comparison" className="border-b border-slate-100 bg-slate-50/40">
+    <section id="comparison" className="border-b border-slate-100 bg-slate-50/40 dark:border-slate-800 dark:bg-slate-900/60">
       <div className="mx-auto max-w-6xl px-4 py-12">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <h2 className="text-2xl font-bold tracking-tight text-slate-900">
+            <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100">
               Price comparison
             </h2>
-            <p className="mt-2 text-slate-600">
+            <p className="mt-2 text-slate-600 dark:text-slate-300">
               All prices in PHP per liter. Tap a column header to sort.
             </p>
           </div>
-          <p className="flex items-center gap-2 text-xs font-medium text-slate-500">
+          <p className="flex items-center gap-2 text-xs font-medium text-slate-500 dark:text-slate-400">
             <ArrowDownUp className="size-4" aria-hidden />
             Sort by diesel, unleaded, brand area, and more.
           </p>
         </div>
 
-        <div className="mt-8 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
+        <div className="mt-8 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-950">
           <table className="w-full min-w-[980px] text-left text-sm">
-            <thead className="bg-slate-50 text-xs font-semibold uppercase tracking-wide text-slate-500">
+            <thead className="bg-slate-50 text-xs font-semibold uppercase tracking-wide text-slate-500 dark:bg-slate-900 dark:text-slate-400">
               <tr>
                 <th className="px-4 py-3">Brand</th>
                 <th className="px-4 py-3">Station</th>
@@ -74,11 +74,11 @@ export function StationComparison({ stations }: Props) {
                     <button
                       type="button"
                       onClick={() => toggleSort(c.key)}
-                      className="inline-flex items-center gap-1 rounded-md px-1 py-0.5 font-semibold text-slate-600 hover:bg-white hover:text-slate-900"
+                      className="inline-flex items-center gap-1 rounded-md px-1 py-0.5 font-semibold text-slate-600 hover:bg-white hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-slate-100"
                     >
                       {c.label}
                       {sortKey === c.key ? (
-                        <span className="text-emerald-700" aria-hidden>
+                        <span className="text-emerald-700 dark:text-emerald-400" aria-hidden>
                           {direction === "asc" ? "↑" : "↓"}
                         </span>
                       ) : null}
@@ -88,22 +88,22 @@ export function StationComparison({ stations }: Props) {
                 <th className="px-4 py-3">Area</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100">
+            <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
               {sorted.map((row) => (
-                <tr key={row.id} className="hover:bg-emerald-50/40">
-                  <td className="px-4 py-3 font-semibold text-slate-900">
+                <tr key={row.id} className="hover:bg-emerald-50/40 dark:hover:bg-emerald-950/30">
+                  <td className="px-4 py-3 font-semibold text-slate-900 dark:text-slate-100">
                     {row.brand}
                   </td>
-                  <td className="px-4 py-3 text-slate-700">{row.name}</td>
+                  <td className="px-4 py-3 text-slate-700 dark:text-slate-300">{row.name}</td>
                   {columns.map((c) => (
                     <td
                       key={c.key}
-                      className="px-4 py-3 text-right tabular-nums text-slate-800"
+                      className="px-4 py-3 text-right tabular-nums text-slate-800 dark:text-slate-300"
                     >
                       {formatPricePerLiter(row[c.key])}
                     </td>
                   ))}
-                  <td className="px-4 py-3 text-slate-600">{row.area}</td>
+                  <td className="px-4 py-3 text-slate-600 dark:text-slate-300">{row.area}</td>
                 </tr>
               ))}
             </tbody>

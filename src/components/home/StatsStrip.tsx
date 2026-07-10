@@ -29,20 +29,20 @@ export function StatsStrip({ snapshot }: Props) {
   ];
 
   return (
-    <section className="border-b border-slate-100 bg-white">
+    <section className="border-b border-slate-100 bg-white dark:border-slate-800 dark:bg-slate-950">
       <div className="mx-auto grid max-w-6xl gap-4 px-4 py-10 sm:grid-cols-2 lg:grid-cols-4">
         {tiles.map((t) => (
           <div
             key={t.label}
-            className="rounded-2xl border border-slate-100 bg-slate-50/80 p-5 shadow-sm shadow-slate-200/40"
+            className="rounded-2xl border border-slate-100 bg-slate-50/80 p-5 shadow-sm shadow-slate-200/40 dark:border-slate-800 dark:bg-slate-900/60"
           >
-            <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+            <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
               {t.label}
             </p>
-            <p className="mt-2 text-3xl font-bold tabular-nums text-slate-900">
+            <p className="mt-2 text-3xl font-bold tabular-nums text-slate-900 dark:text-slate-100">
               {t.value}
             </p>
-            <p className="mt-1 text-sm text-slate-600">{t.sub}</p>
+            <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">{t.sub}</p>
           </div>
         ))}
       </div>

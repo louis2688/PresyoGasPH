@@ -33,45 +33,45 @@ export function FuelCalculator({
   const total = price * liters;
 
   return (
-    <section id="calculator" className="border-b border-slate-100 bg-white">
+    <section id="calculator" className="border-b border-slate-100 bg-white dark:border-slate-800 dark:bg-slate-950">
       <div className="mx-auto max-w-6xl px-4 py-14">
         <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
           <div>
-            <h2 className="text-2xl font-bold tracking-tight text-slate-900">
+            <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100">
               Fuel cost calculator
             </h2>
-            <p className="mt-3 text-slate-600">
+            <p className="mt-3 text-slate-600 dark:text-slate-300">
               Estimate a fill-up using brand averages from the overview table,
               then compare with the metro mean to see how much you would pay
               for a typical trip.
             </p>
             <Link
               href="/map"
-              className="mt-6 inline-flex text-sm font-semibold text-emerald-800 underline-offset-4 hover:underline"
+              className="mt-6 inline-flex text-sm font-semibold text-emerald-800 underline-offset-4 hover:underline dark:text-emerald-400"
             >
               See cheapest station on the map →
             </Link>
           </div>
 
-          <div className="rounded-2xl border border-slate-200 bg-slate-50/70 p-6 shadow-sm">
+          <div className="rounded-2xl border border-slate-200 bg-slate-50/70 p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/60">
             <div className="grid gap-4 sm:grid-cols-2">
-              <label className="text-xs font-semibold text-slate-700">
+              <label className="text-xs font-semibold text-slate-700 dark:text-slate-300">
                 Fuel type
                 <select
                   value={mode}
                   onChange={(e) => setMode(e.target.value as Mode)}
-                  className="mt-1 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:ring-4 focus:ring-emerald-600/15"
+                  className="mt-1 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:ring-4 focus:ring-emerald-600/15 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"
                 >
                   <option value="diesel">Diesel</option>
                   <option value="unleaded91">Unleaded 91</option>
                 </select>
               </label>
-              <label className="text-xs font-semibold text-slate-700">
+              <label className="text-xs font-semibold text-slate-700 dark:text-slate-300">
                 Brand
                 <select
                   value={brand}
                   onChange={(e) => setBrand(e.target.value)}
-                  className="mt-1 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:ring-4 focus:ring-emerald-600/15"
+                  className="mt-1 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:ring-4 focus:ring-emerald-600/15 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"
                 >
                   {brands.map((b) => (
                     <option key={b.brand} value={b.brand}>
@@ -83,7 +83,7 @@ export function FuelCalculator({
             </div>
 
             <div className="mt-4">
-              <label className="text-xs font-semibold text-slate-700">
+              <label className="text-xs font-semibold text-slate-700 dark:text-slate-300">
                 Liters to fill
               </label>
               <input
@@ -92,14 +92,14 @@ export function FuelCalculator({
                 step={1}
                 value={liters}
                 onChange={(e) => setLiters(Number(e.target.value))}
-                className="mt-1 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm tabular-nums outline-none focus:ring-4 focus:ring-emerald-600/15"
+                className="mt-1 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm tabular-nums outline-none focus:ring-4 focus:ring-emerald-600/15 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"
               />
               <div className="mt-2 flex flex-wrap gap-2">
                 {presets.map((p) => (
                   <button
                     key={p}
                     type="button"
-                    className="rounded-full bg-white px-3 py-1 text-xs font-semibold text-slate-700 ring-1 ring-slate-200 transition hover:bg-emerald-50 hover:ring-emerald-200"
+                    className="rounded-full bg-white px-3 py-1 text-xs font-semibold text-slate-700 ring-1 ring-slate-200 transition hover:bg-emerald-50 hover:ring-emerald-200 dark:bg-slate-900 dark:text-slate-300 dark:ring-slate-700 dark:hover:bg-emerald-950/60 dark:hover:ring-emerald-800"
                     onClick={() => setLiters(p)}
                   >
                     {p}L
@@ -108,14 +108,14 @@ export function FuelCalculator({
               </div>
             </div>
 
-            <div className="mt-6 rounded-xl bg-white p-4 ring-1 ring-slate-200">
-              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+            <div className="mt-6 rounded-xl bg-white p-4 ring-1 ring-slate-200 dark:bg-slate-900 dark:ring-slate-700">
+              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
                 Estimated total
               </p>
-              <p className="mt-2 text-4xl font-bold tabular-nums text-slate-900">
+              <p className="mt-2 text-4xl font-bold tabular-nums text-slate-900 dark:text-slate-100">
                 ₱{total.toFixed(2)}
               </p>
-              <p className="mt-2 text-sm text-slate-600">
+              <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
                 Using ₱{price.toFixed(2)}/L ·{" "}
                 {mode === "diesel" ? "Metro avg diesel" : "Metro avg unleaded"}{" "}
                 is ₱

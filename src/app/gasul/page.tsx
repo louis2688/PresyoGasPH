@@ -10,22 +10,22 @@ export const metadata: Metadata = {
 
 export default function GasulPage() {
   return (
-    <main className="bg-white">
-      <section className="border-b border-slate-100 bg-gradient-to-b from-sky-50 to-white">
+    <main className="bg-white dark:bg-slate-950">
+      <section className="border-b border-slate-100 bg-gradient-to-b from-sky-50 to-white dark:border-slate-800 dark:from-sky-950/40 dark:to-slate-950">
         <div className="mx-auto max-w-6xl px-4 py-14">
-          <p className="text-xs font-semibold uppercase tracking-wide text-sky-900">
+          <p className="text-xs font-semibold uppercase tracking-wide text-sky-900 dark:text-sky-400">
             Household fuel
           </p>
-          <h1 className="mt-3 text-4xl font-bold tracking-tight text-slate-900">
+          <h1 className="mt-3 text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-100">
             Gasul / LPG pricing
           </h1>
-          <p className="mt-4 max-w-3xl text-lg text-slate-600">
+          <p className="mt-4 max-w-3xl text-lg text-slate-600 dark:text-slate-300">
             Tank estimates help households compare major distributors before
             heading to the depot—numbers here are placeholders similar to public
             trackers like{" "}
             <a
               href="https://gaswatchph.com/"
-              className="font-semibold text-emerald-800 underline-offset-4 hover:underline"
+              className="font-semibold text-emerald-800 underline-offset-4 hover:underline dark:text-emerald-400"
               target="_blank"
               rel="noreferrer"
             >
@@ -47,13 +47,13 @@ export default function GasulPage() {
           {lpgTiers.map((tier) => (
             <div
               key={tier.kg}
-              className="rounded-3xl border border-slate-200 bg-slate-50/60 p-6 shadow-sm"
+              className="rounded-3xl border border-slate-200 bg-slate-50/60 p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/60"
             >
               <div className="flex items-baseline justify-between gap-4">
-                <h2 className="text-2xl font-bold text-slate-900">
+                <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100">
                   {tier.kg} kg
                 </h2>
-                <span className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                <span className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
                   PHP per tank
                 </span>
               </div>
@@ -64,12 +64,12 @@ export default function GasulPage() {
                   .map((row) => (
                     <li
                       key={row.brand}
-                      className="flex items-center justify-between rounded-2xl bg-white px-4 py-3 ring-1 ring-slate-100"
+                      className="flex items-center justify-between rounded-2xl bg-white px-4 py-3 ring-1 ring-slate-100 dark:bg-slate-950 dark:ring-slate-800"
                     >
-                      <span className="font-semibold text-slate-900">
+                      <span className="font-semibold text-slate-900 dark:text-slate-100">
                         {row.brand}
                       </span>
-                      <span className="font-bold tabular-nums text-emerald-800">
+                      <span className="font-bold tabular-nums text-emerald-800 dark:text-emerald-400">
                         ₱{row.pricePhp.toLocaleString("en-PH")}
                       </span>
                     </li>
@@ -79,7 +79,7 @@ export default function GasulPage() {
           ))}
         </div>
 
-        <p className="mt-10 rounded-2xl border border-amber-100 bg-amber-50 px-4 py-3 text-sm text-amber-950">
+        <p className="mt-10 rounded-2xl border border-amber-100 bg-amber-50 px-4 py-3 text-sm text-amber-950 dark:border-amber-900 dark:bg-amber-950/40 dark:text-amber-200">
           * Illustrative values for UX scaffolding. Actual retail SRP varies by
           distributor promotions—confirm with your dealer before pickup.
         </p>

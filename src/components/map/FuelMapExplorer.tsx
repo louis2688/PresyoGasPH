@@ -12,7 +12,7 @@ import { StationDetailSheet } from "./StationDetailSheet";
 const LeafletStationMap = dynamic(() => import("./LeafletStationMap"), {
   ssr: false,
   loading: () => (
-    <div className="flex h-[min(55vh,520px)] min-h-[380px] w-full items-center justify-center rounded-3xl border border-slate-200 bg-slate-100 text-sm text-slate-500">
+    <div className="flex h-[min(55vh,520px)] min-h-[380px] w-full items-center justify-center rounded-3xl border border-slate-200 bg-slate-100 text-sm text-slate-500 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-400">
       Loading map…
     </div>
   ),
@@ -111,12 +111,12 @@ export function FuelMapExplorer({ stations, initialArea }: Props) {
       <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
         <div className="space-y-4">
           <div className="flex flex-wrap gap-3">
-            <label className="text-xs font-semibold text-slate-700">
+            <label className="text-xs font-semibold text-slate-700 dark:text-slate-300">
               Fuel type
               <select
                 value={fuel}
                 onChange={(e) => setFuel(e.target.value as FuelColumn)}
-                className="mt-1 block rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:ring-4 focus:ring-emerald-600/15"
+                className="mt-1 block rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:ring-4 focus:ring-emerald-600/15 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"
               >
                 {fuelKeys.map((f) => (
                   <option key={f.key} value={f.key}>
@@ -125,12 +125,12 @@ export function FuelMapExplorer({ stations, initialArea }: Props) {
                 ))}
               </select>
             </label>
-            <label className="text-xs font-semibold text-slate-700">
+            <label className="text-xs font-semibold text-slate-700 dark:text-slate-300">
               Brand
               <select
                 value={brandFilter}
                 onChange={(e) => setBrandFilter(e.target.value)}
-                className="mt-1 block rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:ring-4 focus:ring-emerald-600/15"
+                className="mt-1 block rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:ring-4 focus:ring-emerald-600/15 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"
               >
                 <option>All brands</option>
                 {brands.map((b) => (
@@ -140,12 +140,12 @@ export function FuelMapExplorer({ stations, initialArea }: Props) {
                 ))}
               </select>
             </label>
-            <label className="text-xs font-semibold text-slate-700">
+            <label className="text-xs font-semibold text-slate-700 dark:text-slate-300">
               Area
               <select
                 value={areaFilter}
                 onChange={(e) => setAreaFilter(e.target.value)}
-                className="mt-1 block rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:ring-4 focus:ring-emerald-600/15"
+                className="mt-1 block rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:ring-4 focus:ring-emerald-600/15 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"
               >
                 <option>All areas</option>
                 {areas.map((a) => (
@@ -158,7 +158,7 @@ export function FuelMapExplorer({ stations, initialArea }: Props) {
           </div>
 
           {filtered.length === 0 ? (
-            <div className="rounded-xl border border-rose-100 bg-rose-50 px-4 py-3 text-sm font-medium text-rose-950">
+            <div className="rounded-xl border border-rose-100 bg-rose-50 px-4 py-3 text-sm font-medium text-rose-950 dark:border-rose-900 dark:bg-rose-950/40 dark:text-rose-200">
               No stations match those filters—clear the brand filter or widen
               the area selection.
             </div>
@@ -172,7 +172,7 @@ export function FuelMapExplorer({ stations, initialArea }: Props) {
               jumpTargets={jumpTargets}
             />
 
-            <div className="pointer-events-none absolute bottom-3 left-3 z-[700] flex flex-wrap gap-3 rounded-2xl bg-white/95 px-3 py-2 text-[11px] font-medium text-slate-700 shadow-sm ring-1 ring-slate-200">
+            <div className="pointer-events-none absolute bottom-3 left-3 z-[700] flex flex-wrap gap-3 rounded-2xl bg-white/95 px-3 py-2 text-[11px] font-medium text-slate-700 shadow-sm ring-1 ring-slate-200 dark:bg-slate-900/95 dark:text-slate-300 dark:ring-slate-700">
               <span className="inline-flex items-center gap-1">
                 <span className="size-2 rounded-full bg-emerald-500" /> Best
                 deal
@@ -186,51 +186,51 @@ export function FuelMapExplorer({ stations, initialArea }: Props) {
             </div>
           </div>
 
-          <p className="text-xs text-slate-500">
+          <p className="text-xs text-slate-500 dark:text-slate-400">
             © OpenStreetMap contributors · © CARTO · Clusters zoom on tap · Pill
             codes use the fuel column above (price rounded).
           </p>
         </div>
 
-        <aside className="space-y-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+        <aside className="space-y-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-800 dark:bg-slate-950">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+            <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
               Selected station
             </p>
             {selected ? (
               <div className="mt-2 space-y-2 text-sm">
-                <p className="text-lg font-semibold text-slate-900">
+                <p className="text-lg font-semibold text-slate-900 dark:text-slate-100">
                   {selected.brand}
                 </p>
-                <p className="text-slate-700">{selected.name}</p>
-                <p className="text-slate-500">{selected.area}</p>
-                <p className="text-2xl font-bold tabular-nums text-emerald-800">
+                <p className="text-slate-700 dark:text-slate-300">{selected.name}</p>
+                <p className="text-slate-500 dark:text-slate-400">{selected.area}</p>
+                <p className="text-2xl font-bold tabular-nums text-emerald-800 dark:text-emerald-400">
                   {selected[fuel] != null
                     ? `₱${selected[fuel]!.toFixed(2)}/L`
                     : "Unavailable"}
                 </p>
                 <button
                   type="button"
-                  className="mt-2 text-sm font-semibold text-emerald-800 underline-offset-2 hover:underline"
+                  className="mt-2 text-sm font-semibold text-emerald-800 underline-offset-2 hover:underline dark:text-emerald-400"
                   onClick={() => handleStationClick(selected.id)}
                 >
                   Open full detail sheet →
                 </button>
-                <p className="text-xs text-slate-500">
+                <p className="text-xs text-slate-500 dark:text-slate-400">
                   Showing {fuelKeys.find((f) => f.key === fuel)?.label}. Range
                   in view ₱{minP.toFixed(2)} – ₱{maxP.toFixed(2)}.
                 </p>
               </div>
             ) : (
-              <p className="mt-2 text-sm text-slate-600">
+              <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
                 Tap a pill marker or cluster on the map—clusters zoom in to show
                 more pins.
               </p>
             )}
           </div>
 
-          <div className="rounded-xl bg-slate-50 p-3 text-xs text-slate-600">
-            <p className="font-semibold text-slate-900">Filters snapshot</p>
+          <div className="rounded-xl bg-slate-50 p-3 text-xs text-slate-600 dark:bg-slate-900/60 dark:text-slate-300">
+            <p className="font-semibold text-slate-900 dark:text-slate-100">Filters snapshot</p>
             <p className="mt-1">
               {filtered.length} stations visible · Labels show{" "}
               {fuelKeys.find((f) => f.key === fuel)?.label} tier vs metro peers.

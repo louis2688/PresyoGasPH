@@ -7,14 +7,14 @@ interface Props {
 
 export function WeeklyBands({ bands, weekLabel }: Props) {
   return (
-    <section className="border-b border-slate-100 bg-slate-50/50">
+    <section className="border-b border-slate-100 bg-slate-50/50 dark:border-slate-800 dark:bg-slate-900/60">
       <div className="mx-auto max-w-6xl px-4 py-12">
         <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
           <div>
-            <h2 className="text-2xl font-bold tracking-tight text-slate-900">
+            <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100">
               Week of price spread
             </h2>
-            <p className="mt-2 text-slate-600">
+            <p className="mt-2 text-slate-600 dark:text-slate-300">
               Example same-week pump range (₱/L) · {weekLabel}
             </p>
           </div>
@@ -24,12 +24,12 @@ export function WeeklyBands({ bands, weekLabel }: Props) {
           {bands.map((b) => (
             <div
               key={b.fuel}
-              className="rounded-2xl border border-white bg-white p-5 shadow-sm shadow-slate-200/50"
+              className="rounded-2xl border border-white bg-white p-5 shadow-sm shadow-slate-200/50 dark:border-slate-800 dark:bg-slate-900"
             >
-              <p className="text-sm font-semibold text-slate-900">{b.fuel}</p>
-              <p className="mt-3 text-2xl font-bold tabular-nums text-emerald-800">
+              <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">{b.fuel}</p>
+              <p className="mt-3 text-2xl font-bold tabular-nums text-emerald-800 dark:text-emerald-400">
                 ₱{b.low.toFixed(2)} – {b.high.toFixed(2)}
-                <span className="text-sm font-medium text-slate-500"> /L</span>
+                <span className="text-sm font-medium text-slate-500 dark:text-slate-400"> /L</span>
               </p>
             </div>
           ))}

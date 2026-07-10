@@ -18,7 +18,7 @@ import { brandOverview } from "@/data/brands";
 
 export default function HomePage() {
   return (
-    <main className="bg-white">
+    <main className="bg-white dark:bg-slate-950">
       <HeroSection />
       <StatsStrip snapshot={metroSnapshot} />
       <WeeklyBands bands={weeklyBands} weekLabel={metroSnapshot.weekLabel} />

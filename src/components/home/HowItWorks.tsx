@@ -23,12 +23,12 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section className="border-b border-slate-100 bg-white">
+    <section className="border-b border-slate-100 bg-white dark:border-slate-800 dark:bg-slate-950">
       <div className="mx-auto max-w-6xl px-4 py-14">
-        <h2 className="text-2xl font-bold tracking-tight text-slate-900">
+        <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100">
           How we track prices
         </h2>
-        <p className="mt-2 max-w-2xl text-slate-600">
+        <p className="mt-2 max-w-2xl text-slate-600 dark:text-slate-300">
           A simple pipeline you can later back with cron jobs, admin tools, and
           verification—this UI is ready for the data you connect.
         </p>
@@ -36,13 +36,13 @@ export function HowItWorks() {
           {steps.map((s) => (
             <li
               key={s.n}
-              className="relative overflow-hidden rounded-2xl border border-slate-200 bg-slate-50/50 p-6"
+              className="relative overflow-hidden rounded-2xl border border-slate-200 bg-slate-50/50 p-6 dark:border-slate-800 dark:bg-slate-900/60"
             >
-              <p className="text-xs font-bold text-emerald-700">{s.n}</p>
-              <p className="mt-2 text-lg font-semibold text-slate-900">
+              <p className="text-xs font-bold text-emerald-700 dark:text-emerald-400">{s.n}</p>
+              <p className="mt-2 text-lg font-semibold text-slate-900 dark:text-slate-100">
                 {s.title}
               </p>
-              <p className="mt-2 text-sm leading-relaxed text-slate-600">
+              <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
                 {s.body}
               </p>
             </li>
