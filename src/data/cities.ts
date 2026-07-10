@@ -1,0 +1,20 @@
+/** Cities with approximate station counts — Metro Manila focus */
+export const metroCities = [
+  { name: "Quezon City", stations: 224 },
+  { name: "Pasig", stations: 135 },
+  { name: "Manila", stations: 101 },
+  { name: "Caloocan", stations: 84 },
+  { name: "Parañaque", stations: 64 },
+  { name: "Makati", stations: 61 },
+  { name: "Las Piñas", stations: 56 },
+  { name: "Valenzuela", stations: 39 },
+  { name: "Marikina", stations: 35 },
+  { name: "San Juan", stations: 30 },
+  { name: "Mandaluyong", stations: 28 },
+  { name: "Muntinlupa", stations: 28 },
+  { name: "Malabon", stations: 22 },
+  { name: "Pasay", stations: 22 },
+  { name: "Taguig", stations: 22 },
+  { name: "Navotas", stations: 8 },
+  { name: "Pateros", stations: 5 },
+] as const;
